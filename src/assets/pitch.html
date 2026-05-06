@@ -163,6 +163,58 @@
     animation: fadeUp 700ms ease-out 900ms forwards;
   }
 
+  /* Cita / fuente — atribución pequeña, no decorativa */
+  .cite {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    line-height: 1.45;
+    letter-spacing: 0.03em;
+    color: var(--ink-muted);
+    font-style: italic;
+    opacity: 0.85;
+  }
+  .data-card .cite { margin-top: 0.6rem; max-width: 280px; }
+  .slide-1 .cite {
+    margin-top: -1.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 700ms ease-out 700ms forwards;
+    font-size: 0.7rem;
+  }
+  .slide-3 .pillar .cite { margin-top: 0.5rem; max-width: 380px; }
+  .arch-step .cite { margin-top: 0.4rem; font-size: 0.62rem; }
+  .slide-6 .footnote-cite {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.03em;
+    font-style: italic;
+    text-align: center;
+    margin-top: 1rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+  .pillar-card ul.gov-list {
+    list-style: none;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .pillar-card ul.gov-list li {
+    padding-left: 0.9rem;
+    position: relative;
+  }
+  .pillar-card ul.gov-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-weight: 700;
+  }
+
   .slide-1 .deco {
     position: absolute;
     font-family: 'Fraunces', serif;
@@ -928,8 +980,9 @@
     <div class="deco deco-1">"</div>
     <div class="kicker">Hackathon Anthropic · Chile · 2026</div>
     <h1>
-      4 de cada 10 chilenos sobreendeudados firmaron sin <em>entender</em> lo que firmaban.
+      4 de cada 10 chilenos no comprende términos financieros básicos como <em>interés compuesto</em> o <em>tasa anual</em>.
     </h1>
+    <div class="cite">Encuesta de Medición de Capacidades Financieras CMF / BID, 2016.</div>
     <div class="source">— el costo de la asimetría de información es invisible y enorme.</div>
   </section>
 
@@ -950,18 +1003,21 @@
     <div class="data-grid stagger">
       <div class="data-card">
         <div class="label">Costo de asesoría legal</div>
-        <div class="number">$200<span class="unit">.000</span></div>
-        <div class="desc">Honorarios mínimos para revisar un contrato. Una semana de sueldo mínimo.</div>
+        <div class="number">$80<span class="unit">–300k</span></div>
+        <div class="desc">Revisión legal de un contrato de crédito. Más de una semana de sueldo mínimo ($510.000, Ley 21.751).</div>
+        <div class="cite">Rangos de mercado de estudios jurídicos chilenos · DT.gob.cl</div>
       </div>
       <div class="data-card">
         <div class="label">Sobreendeudamiento</div>
-        <div class="number">40<span class="unit">%</span></div>
-        <div class="desc">Población deudora con carga financiera por sobre el umbral de riesgo.</div>
+        <div class="number">25<span class="unit">–30%</span></div>
+        <div class="desc">Deudores del sistema bancario con Razón Cuota / Ingreso (RCI) sobre el umbral de riesgo del 40%.</div>
+        <div class="cite">Informe de Endeudamiento CMF</div>
       </div>
       <div class="data-card">
         <div class="label">Acceso a defensa</div>
-        <div class="number">7<span class="unit">M</span></div>
-        <div class="desc">Personas en cluster vulnerable sin acceso real a asesoría especializada.</div>
+        <div class="number">~8<span class="unit">M</span></div>
+        <div class="desc">Personas en quintiles I y II de ingreso sin acceso real a asesoría especializada en consumo financiero.</div>
+        <div class="cite">CASEN 2022 · Observatorio Social MIDESO</div>
       </div>
     </div>
   </section>
@@ -991,7 +1047,8 @@
         <div class="pillar">
           <div class="symbol">— II —</div>
           <h3>Anónimo por arquitectura.</h3>
-          <p>El RUT se hashea y se descarta. Nuestro propio equipo no puede re-identificarte.</p>
+          <p>El RUT se hashea (HMAC) y se descarta. Nuestro propio equipo no puede re-identificarte.</p>
+          <div class="cite">Diseño coherente con la Ley 21.719 de Protección de Datos Personales — vigencia plena 1 de diciembre de 2026.</div>
         </div>
         <div class="pillar">
           <div class="symbol">— III —</div>
@@ -1028,7 +1085,7 @@
       <text x="24" y="40" text-anchor="middle" fill="rgba(244,239,230,.4)" font-family="JetBrains Mono" font-size="8">CMF</text>
     </svg>
 
-    <div class="demo-instruction">→ subir informe CMF</div>
+    <div class="demo-instruction">→ CMF · subir Informe de Deudas</div>
   </section>
 
   <!-- SLIDE 5: CÓMO FUNCIONA -->
@@ -1044,8 +1101,8 @@
     <div class="arch-flow stagger">
       <div class="arch-step">
         <div class="step-num">— 01 —</div>
-        <h3>Informe CMF</h3>
-        <p>El usuario sube su informe de deudas. Único punto de entrada. Sin cuentas, sin formularios.</p>
+        <h3>Informe de Deudas CMF</h3>
+        <p>El usuario sube su Informe de Deudas (descargable con Clave Única en cmfchile.cl). Único punto de entrada. Sin cuentas, sin formularios.</p>
         <div class="tech">PDF · pdfplumber</div>
       </div>
       <div class="arch-step">
@@ -1063,7 +1120,7 @@
       <div class="arch-step">
         <div class="step-num">— 04 —</div>
         <h3>Corpus normativo</h3>
-        <p>Ley 19.496, 18.010, 20.555, 21.398, 21.236 indexadas. RAG retorna citas literales para fundamentar cada respuesta.</p>
+        <p>Leyes 19.496 (Consumidor), 18.010 (Crédito), 20.555 (SERNAC Financiero), 21.236 (Portabilidad), 21.398 (Pro Consumidor) y 20.169 (Cobranza extrajudicial) indexadas. RAG retorna citas literales.</p>
         <div class="tech">ChromaDB · Embeddings</div>
       </div>
     </div>
@@ -1114,6 +1171,9 @@
     <div class="footnote">
       Métrica de éxito real: <em>% de usuarios que cambian de cluster en 12 meses.</em>
     </div>
+    <div class="footnote-cite">
+      Esta segmentación es construcción propia de Fulcro, calibrada con datos públicos del Informe de Endeudamiento CMF y la EFH del Banco Central. No es una clasificación oficial.
+    </div>
   </section>
 
   <!-- SLIDE 7: POR QUÉ AHORA -->
@@ -1151,8 +1211,14 @@
           <path d="M30 8 L52 20 L52 40 L30 52 L8 40 L8 20 Z" stroke="currentColor" stroke-width="1.5"/>
           <path d="M22 30 L28 36 L40 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        <h3>La CMF chilena <em>publica todo abierto</em>.</h3>
-        <p>Ventaja regulatoria única en la región. Las leyes son de dominio público, listas para indexar.</p>
+        <h3>El Estado chileno entrega los <em>insumos</em>.</h3>
+        <ul class="gov-list">
+          <li>Leychile.cl (BCN) · normativa indexable</li>
+          <li>CMF · datos abiertos y sanciones</li>
+          <li>Clave Única (Ley 19.477) · acceso autenticado</li>
+          <li>Ley 21.180 · Transformación Digital del Estado</li>
+          <li>Ley 21.719 · anonimización por diseño</li>
+        </ul>
       </div>
     </div>
 
@@ -1179,13 +1245,13 @@
             <span class="marker">/01</span>
             <div class="content">
               <strong>Motor MCP normativo</strong>
-              <span>El servidor con corpus indexado de la CMF y SERNAC. Apache 2.0.</span>
+              <span>Servidor con corpus indexado de leyes de consumidor financiero chileno y normativa CMF. Apache 2.0.</span>
             </div>
           </li>
           <li>
             <span class="marker">/02</span>
             <div class="content">
-              <strong>Parser de informes CMF</strong>
+              <strong>Parser de Informes de Deudas CMF</strong>
               <span>Para que cualquier organización procese los informes públicos.</span>
             </div>
           </li>
@@ -1193,7 +1259,7 @@
             <span class="marker">/03</span>
             <div class="content">
               <strong>Plantillas de cartas</strong>
-              <span>De reclamo a SERNAC, portabilidad financiera, denuncia de cláusulas abusivas.</span>
+              <span>Reclamo a SERNAC, portabilidad financiera (Ley 21.236), denuncia de cláusulas abusivas (Art. 16 Ley 19.496) y respuesta a cobranza extrajudicial fuera de norma (Ley 20.169).</span>
             </div>
           </li>
         </ul>
@@ -1227,7 +1293,7 @@
     </div>
 
     <div class="public-banner">
-      Fulcro nace cumpliendo la <em>Ley 21.719</em> que entra en vigencia plena en 2026.
+      Fulcro nace cumpliendo la <em>Ley 21.719</em> — vigencia plena el 1 de diciembre de 2026.
     </div>
   </section>
 
@@ -1245,17 +1311,17 @@
       <div class="next-card">
         <div class="when">— Semana 1 —</div>
         <h3>Carta formal a la CMF</h3>
-        <p>Solicitud de exploración de convenio para acceso directo a Informe de Deuda Consolidada (D27).</p>
+        <p>Solicitud de exploración de convenio para acceso programático al Informe de Deudas vía API o estándar de interoperabilidad.</p>
       </div>
       <div class="next-card">
         <div class="when">— Semana 1 —</div>
-        <h3>Carta a SEGPRES / Modernización del Estado</h3>
+        <h3>Carta a SEGPRES / DGD</h3>
         <p>Acceso a Clave Única vía broker oficial OIDC. Reemplaza el upload manual de PDF.</p>
       </div>
       <div class="next-card">
         <div class="when">— Mes 1 —</div>
         <h3>Opinión legal de alcance</h3>
-        <p>Whitepaper sobre el límite "educación financiera vs. asesoría registrada". Co-diseño con CMF/SERNAC.</p>
+        <p>Whitepaper sobre el límite "educación financiera vs. asesoría registrada" (NCG 412 CMF, Ley 18.045). Co-diseño con CMF / SERNAC.</p>
       </div>
       <div class="next-card">
         <div class="when">— Mes 2 —</div>
