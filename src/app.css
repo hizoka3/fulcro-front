@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  html, body {
+    @apply bg-surface text-ink antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  body {
+    font-family: theme("fontFamily.sans");
+  }
+
+  ::selection {
+    background: theme("colors.accent.200");
+    color: theme("colors.primary.DEFAULT");
+  }
+
+  *:focus-visible {
+    @apply outline-none shadow-focus rounded-sm;
+  }
+}
+
+@layer components {
+  .container-pro {
+    @apply mx-auto w-full max-w-[1120px] px-5 sm:px-8;
+  }
+
+  .surface-card {
+    @apply bg-surface-raised border border-primary-100/60 rounded-lg shadow-card;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5
+           text-small font-medium transition-all duration-200 ease-out-soft
+           disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-700 active:bg-primary-900
+           shadow-card hover:shadow-card-hover;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent text-white hover:bg-accent-600 active:bg-accent-700
+           shadow-card hover:shadow-card-hover;
+  }
+
+  .btn-ghost {
+    @apply btn text-primary hover:bg-primary-50 border border-primary-100/60;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1 text-accent-600 hover:text-accent-700
+           underline-offset-4 hover:underline transition-colors;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1
+           text-micro font-medium uppercase tracking-wide;
+  }
+
+  .legal-quote {
+    @apply border-l-4 border-primary bg-primary-50/60 rounded-r-md
+           px-4 py-3 text-small text-ink italic;
+  }
+
+  .grain {
+    background-image: var(--grain);
+    background-blend-mode: multiply;
+    opacity: 0.6;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+}

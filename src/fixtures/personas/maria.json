@@ -1,0 +1,165 @@
+{
+  "anon_id": "condor-4521",
+  "avatar": {
+    "name": "Cóndor 4521",
+    "image_url": ""
+  },
+  "segment": "vulnerable",
+  "features": {
+    "total_debt": 7820000,
+    "consumo_ratio": 0.74,
+    "past_due_ratio": 0.18,
+    "num_institutions": 4,
+    "num_refinancings": 3,
+    "has_mortgage": false,
+    "carga_financiera_pct": 52,
+    "dominant_signal": "tasa_al_limite_legal"
+  },
+  "income_estimate": 720000,
+  "monthly_payment": 374000,
+  "debts": [
+    {
+      "institution": "Retail Sur (CMR)",
+      "product": "Tarjeta de crédito",
+      "balance": 2950000,
+      "interest_rate": 33.8,
+      "monthly_payment": 142000,
+      "past_due": true,
+      "priority": 1,
+      "action": "Negociar reprogramación. Tasa al límite legal."
+    },
+    {
+      "institution": "Banco Andes",
+      "product": "Crédito de consumo",
+      "balance": 2450000,
+      "interest_rate": 27.4,
+      "monthly_payment": 118000,
+      "past_due": false,
+      "priority": 2,
+      "action": "Refinanciamiento con cooperativa puede bajar CAE 9 puntos."
+    },
+    {
+      "institution": "Caja Familiar",
+      "product": "Avance en efectivo",
+      "balance": 1620000,
+      "interest_rate": 31.2,
+      "monthly_payment": 78000,
+      "past_due": false,
+      "priority": 3,
+      "action": "Considerar consolidación."
+    },
+    {
+      "institution": "Casa Comercial Norte",
+      "product": "Tarjeta cerrada",
+      "balance": 800000,
+      "interest_rate": 36.0,
+      "monthly_payment": 36000,
+      "past_due": true,
+      "priority": 4,
+      "action": "Pago mínimo + reclamo SERNAC por cláusula de comisión."
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec-001",
+      "title": "Tasa al límite legal",
+      "trigger": "tasa_excede_tmc",
+      "action": "Solicitar revisión de la tasa cobrada en tu tarjeta de Retail Sur. La TMC vigente para tu segmento es 32,4%; estás siendo cobrada al 33,8%.",
+      "priority": 1,
+      "legal": {
+        "ref": "Art. 6° Ley 18.010",
+        "title": "Tasa Máxima Convencional",
+        "quote": "No puede estipularse un interés que exceda en más de un 50% al interés corriente vigente.",
+        "url": "https://www.bcn.cl/leychile/navegar?idNorma=29438"
+      }
+    },
+    {
+      "id": "rec-002",
+      "title": "Refinanciamientos repetidos",
+      "trigger": "refinanciamientos_3x",
+      "action": "Has refinanciado 3 veces en 18 meses. Esto suele indicar cláusulas que renuevan capital sin reducirlo. Pide cartola histórica y cuadro de pagos detallado.",
+      "priority": 2,
+      "legal": {
+        "ref": "Art. 17 B Ley 19.496",
+        "title": "Información en operaciones de crédito",
+        "quote": "El proveedor debe informar la carga anual equivalente y el costo total del crédito.",
+        "url": "https://www.bcn.cl/leychile/navegar?idNorma=61438"
+      }
+    },
+    {
+      "id": "rec-003",
+      "title": "Cláusula potencialmente abusiva",
+      "trigger": "clausula_comision_oculta",
+      "action": "Detectamos una comisión de mantención mensual no informada en el contrato original. Es elegible para reclamo SERNAC.",
+      "priority": 3,
+      "legal": {
+        "ref": "Art. 16 letra g) Ley 19.496",
+        "title": "Cláusulas abusivas",
+        "quote": "Son nulas las cláusulas que contravengan las exigencias de buena fe.",
+        "url": "https://www.bcn.cl/leychile/navegar?idNorma=61438"
+      }
+    }
+  ],
+  "alternatives": [
+    {
+      "institution": "Coopeuch",
+      "product": "Crédito consolidación",
+      "cae": 18.4,
+      "monthly_savings": 96000,
+      "term_months": 36
+    },
+    {
+      "institution": "Banco Estado",
+      "product": "CuentaRUT + crédito social",
+      "cae": 21.1,
+      "monthly_savings": 64000,
+      "term_months": 24
+    },
+    {
+      "institution": "Caja Los Andes",
+      "product": "Crédito Mujer Emprende",
+      "cae": 16.8,
+      "monthly_savings": 112000,
+      "term_months": 30
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert-001",
+      "icon": "rate",
+      "title": "Nueva Tasa Máxima Convencional vigente",
+      "description": "La TMC para créditos de consumo bajó 0,4 puntos. Si tu tasa supera 32,4%, puedes exigir revisión.",
+      "date_relative": "hace 2 días",
+      "source": "CMF",
+      "url": "https://www.cmfchile.cl"
+    },
+    {
+      "id": "alert-002",
+      "icon": "sernac",
+      "title": "SERNAC inicia mediación contra retail nacional",
+      "description": "Mediación colectiva por cláusulas de mantención no informadas. Puedes adherir si tienes contrato vigente desde 2023.",
+      "date_relative": "hace 1 semana",
+      "source": "SERNAC",
+      "url": "https://www.sernac.cl"
+    },
+    {
+      "id": "alert-003",
+      "icon": "law",
+      "title": "Reforma Ley 19.496 entra en vigor",
+      "description": "Nuevas obligaciones de información en contratos de adhesión financieros. Aplica a contratos firmados desde junio.",
+      "date_relative": "hace 2 semanas",
+      "source": "BCN",
+      "url": "https://www.bcn.cl"
+    },
+    {
+      "id": "alert-004",
+      "icon": "consumer",
+      "title": "Fallo histórico Corte Suprema sobre repactaciones",
+      "description": "La Corte falló a favor de consumidores en repactaciones encadenadas. Sienta precedente jurisprudencial.",
+      "date_relative": "hace 3 semanas",
+      "source": "Poder Judicial",
+      "url": "https://www.pjud.cl"
+    }
+  ],
+  "concierge_intro": "Hola, Cóndor 4521. Revisé tu informe CMF. Tienes deudas con 4 instituciones por un total de $7.820.000. Tu carga financiera es 52% del ingreso, lo que está sobre el rango saludable (<30%). Detecté tres cosas que podemos atacar primero: una tasa al límite legal, refinanciamientos repetidos y una cláusula potencialmente abusiva. ¿Por dónde quieres partir?"
+}
