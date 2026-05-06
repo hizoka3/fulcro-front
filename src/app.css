@@ -1,3 +1,9 @@
+/* ============================================================
+   Fulcro · Identidad institucional
+   Tipografía: Fraunces (display serif) · Inter Tight (sans) · Geist Mono (mono)
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Inter+Tight:wght@400..600&family=Geist+Mono:wght@400..500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +15,7 @@
   }
 
   html, body {
-    @apply bg-surface text-ink antialiased;
+    @apply bg-paper text-ink antialiased;
     font-feature-settings: "ss01", "cv11";
   }
 
@@ -18,8 +24,8 @@
   }
 
   ::selection {
-    background: theme("colors.accent.200");
-    color: theme("colors.primary.DEFAULT");
+    background: theme("colors.seal.DEFAULT");
+    color: theme("colors.paper.DEFAULT");
   }
 
   *:focus-visible {
@@ -32,10 +38,12 @@
     @apply mx-auto w-full max-w-[1120px] px-5 sm:px-8;
   }
 
+  /* Card / superficie elevada — papel sobre papel */
   .surface-card {
-    @apply bg-surface-raised border border-primary-100/60 rounded-lg shadow-card;
+    @apply bg-paper-raised border border-rule rounded-lg shadow-card;
   }
 
+  /* ───────── Botones ───────── */
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5
            text-small font-medium transition-all duration-200 ease-out-soft
@@ -43,32 +51,96 @@
   }
 
   .btn-primary {
-    @apply btn bg-primary text-white hover:bg-primary-700 active:bg-primary-900
-           shadow-card hover:shadow-card-hover;
+    @apply btn bg-ink text-paper hover:bg-primary-700 active:bg-primary-900;
   }
 
   .btn-accent {
-    @apply btn bg-accent text-white hover:bg-accent-600 active:bg-accent-700
-           shadow-card hover:shadow-card-hover;
+    @apply btn bg-seal text-paper hover:bg-accent-600 active:bg-accent-700;
   }
 
   .btn-ghost {
-    @apply btn text-primary hover:bg-primary-50 border border-primary-100/60;
+    @apply btn text-ink border border-ink hover:bg-ink hover:text-paper;
   }
 
   .btn-link {
-    @apply inline-flex items-center gap-1 text-accent-600 hover:text-accent-700
+    @apply inline-flex items-center gap-1 text-seal hover:text-accent-700
            underline-offset-4 hover:underline transition-colors;
   }
 
+  /* ───────── Chips / etiquetas ───────── */
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1
-           text-micro font-medium uppercase tracking-wide;
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5
+           font-mono text-[10px] font-normal uppercase tracking-[0.22em]
+           text-ink-muted;
   }
 
+  /* ───────── Sistema institucional ─────────
+     Cabecera oficial: meta-bar + doble regla + título serif. */
+  .meta-bar {
+    @apply flex items-center font-mono text-[10px] uppercase
+           tracking-[0.22em] text-ink-muted;
+  }
+
+  .meta-bar > * + *::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: currentColor;
+    margin: 0 14px;
+    opacity: 0.5;
+    vertical-align: middle;
+  }
+
+  .double-rule {
+    @apply flex flex-col gap-[2px];
+  }
+  .double-rule::before,
+  .double-rule::after {
+    content: "";
+    height: 1px;
+    background: theme("colors.rule.strong");
+  }
+  .double-rule::after {
+    opacity: 0.4;
+  }
+
+  .double-rule-bottom {
+    @apply flex flex-col gap-[2px];
+  }
+  .double-rule-bottom::before,
+  .double-rule-bottom::after {
+    content: "";
+    height: 1px;
+    background: theme("colors.rule.strong");
+  }
+  .double-rule-bottom::before {
+    opacity: 0.4;
+  }
+
+  /* Caption oficial — pie de artboard / bloque */
+  .official-caption {
+    @apply flex justify-between items-center gap-4
+           border-t border-rule px-5 py-3.5
+           bg-paper font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted;
+  }
+  .official-caption .note {
+    @apply normal-case tracking-[0.04em];
+  }
+
+  /* Cita legal — barra lateral fina, sin fondo */
   .legal-quote {
-    @apply border-l-4 border-primary bg-primary-50/60 rounded-r-md
-           px-4 py-3 text-small text-ink italic;
+    @apply border-l-2 border-ink-soft pl-4 py-1
+           font-serif italic text-small text-ink-soft;
+  }
+
+  /* Tipografía editorial */
+  .display {
+    @apply font-serif font-normal text-display text-ink;
+  }
+  .display-italic {
+    @apply font-serif italic text-ink-soft;
   }
 
   .grain {
@@ -81,4 +153,9 @@
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
+
+  /* Variant: oklch en safari < 15.4 fallback (cierra ojo si renderiza distinto) */
+  @supports not (color: oklch(0 0 0)) {
+    body { background: #f5f1e8; color: #16243a; }
+  }
 }

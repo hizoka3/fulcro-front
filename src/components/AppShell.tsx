@@ -69,17 +69,29 @@ export default function AppShell(props: Props): JSX.Element {
   return (
     <div class="min-h-screen flex flex-col">
       <Show when={!isLanding()}>
-        <header class="sticky top-0 z-30 border-b border-primary-100/60 bg-surface-raised/80 backdrop-blur">
+        {/* Cabecera institucional · gov-style */}
+        <header class="sticky top-0 z-30 bg-ink text-paper">
           <div class="container-pro flex h-16 items-center justify-between">
-            <A href="/" aria-label="Volver al inicio">
-              <Logo />
+            <A href="/" aria-label="Volver al inicio" class="flex items-center gap-3.5">
+              <Logo
+                variant="horizontal"
+                size={20}
+                fg="oklch(0.975 0.005 85)"
+                accent="oklch(0.65 0.12 28)"
+                withRing={false}
+              />
+              <span class="hidden h-[18px] w-px bg-paper/25 md:block" />
+              <span class="hidden font-mono text-[9px] uppercase tracking-[0.22em] text-paper/70 md:inline">
+                Concierge financiero
+              </span>
             </A>
+
             <nav class="hidden items-center gap-1 md:flex">
               {NAV.map((item) => (
                 <A
                   href={item.href}
-                  class="flex items-center gap-2 rounded-md px-3 py-2 text-small text-ink-muted transition-colors hover:bg-primary-50 hover:text-primary"
-                  activeClass="bg-primary-50 text-primary font-medium"
+                  class="flex items-center gap-2 rounded-sm px-3 py-2 text-small text-paper/70 transition-colors hover:bg-paper/10 hover:text-paper"
+                  activeClass="text-paper font-medium bg-paper/10"
                   end={false}
                 >
                   <Icon name={item.icon} />
@@ -87,11 +99,20 @@ export default function AppShell(props: Props): JSX.Element {
                 </A>
               ))}
             </nav>
+
             <div class="hidden md:block">
-              <span class="chip bg-success/10 text-success ring-1 ring-success/20">
-                <span class="h-1.5 w-1.5 rounded-full bg-success" />
+              <span class="font-mono text-[9px] uppercase tracking-[0.22em] text-paper/70">
+                <span class="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-success align-middle" />
                 Sesión anónima
               </span>
+            </div>
+          </div>
+
+          {/* Banda institucional (paperWarm) */}
+          <div class="hidden border-y border-rule bg-paper-warm md:block">
+            <div class="container-pro flex justify-between py-2 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted">
+              <span>Servicio público · Sin venta · Anónimo</span>
+              <span>Cumplimiento Ley 21.719 · No constituye asesoría legal</span>
             </div>
           </div>
         </header>
@@ -100,13 +121,13 @@ export default function AppShell(props: Props): JSX.Element {
       <main class="flex-1">{props.children}</main>
 
       <Show when={!isLanding()}>
-        <nav class="sticky bottom-0 z-30 border-t border-primary-100/60 bg-surface-raised/95 backdrop-blur md:hidden">
+        <nav class="sticky bottom-0 z-30 border-t border-rule bg-paper-raised/95 backdrop-blur md:hidden">
           <div class="grid grid-cols-6">
             {NAV.map((item) => (
               <A
                 href={item.href}
                 class="flex flex-col items-center justify-center gap-1 py-2 text-[11px] text-ink-muted"
-                activeClass="text-primary font-medium"
+                activeClass="text-ink font-medium"
               >
                 <Icon name={item.icon} />
                 <span>{item.label}</span>
