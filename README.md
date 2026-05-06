@@ -1,5 +1,7 @@
 # Fulcro — Frontend
 
+# Nota humana: Esta carpeta es un repo que está en https://github.com/hizoka3/fulcro-front
+
 Concierge financiero anónimo para Chile. SolidStart + Tailwind + TypeScript.
 
 ## Stack
