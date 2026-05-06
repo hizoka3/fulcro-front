@@ -16,7 +16,6 @@ export default function ConciergePage() {
   const [messages, setMessages] = createStore<Msg[]>([]);
   const [input, setInput] = createSignal("");
   const [sending, setSending] = createSignal(false);
-  let scrollRef: HTMLDivElement | undefined;
   let nextId = 0;
 
   onMount(() => {
@@ -31,7 +30,7 @@ export default function ConciergePage() {
 
   const scrollToBottom = () => {
     requestAnimationFrame(() => {
-      if (scrollRef) scrollRef.scrollTop = scrollRef.scrollHeight;
+      window.scrollTo({ top: document.documentElement.scrollHeight });
     });
   };
 
@@ -63,7 +62,7 @@ export default function ConciergePage() {
   const suggested = ["¿Por qué mi tasa es tan alta?", "Quiero refinanciar", "Genera la carta SERNAC"];
 
   return (
-    <div class="mx-auto flex h-[calc(100vh-9rem)] max-w-3xl flex-col px-4 sm:h-[calc(100vh-7rem)] sm:px-6">
+    <div class="mx-auto flex min-h-[calc(100svh-9rem)] max-w-3xl flex-col px-4 sm:min-h-[calc(100svh-4rem)] sm:px-6">
       <header class="flex items-center gap-3 border-b border-primary-100/60 py-4">
         <Avatar name={data().avatar.name} size="md" />
         <div>
@@ -72,7 +71,7 @@ export default function ConciergePage() {
         </div>
       </header>
 
-      <div ref={scrollRef} class="flex-1 space-y-4 overflow-y-auto py-6">
+      <div class="flex-1 space-y-4 py-6">
         <For each={messages}>
           {(m) => (
             <ChatMessage
@@ -85,7 +84,7 @@ export default function ConciergePage() {
         </For>
       </div>
 
-      <div class="space-y-3 border-t border-primary-100/60 py-4">
+      <div class="sticky bottom-0 space-y-3 border-t border-primary-100/60 bg-surface/95 py-4 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
         <div class="flex flex-wrap gap-2">
           <For each={suggested}>
             {(s) => (

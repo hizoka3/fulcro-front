@@ -78,7 +78,7 @@ export default function LandingPage() {
           <div class="md:col-span-5 lg:col-span-5">
             <DropZone onFile={handleFile} loading={loading()} />
             <p class="mt-3 text-center text-micro text-ink-subtle">
-              ¿No tienes el informe? <a class="btn-link" href="https://www.cmfchile.cl" target="_blank" rel="noreferrer">Cómo obtenerlo en CMF</a>
+              ¿No tienes el informe? <a class="btn-link" href="https://conocetudeuda.cmfchile.cl/informe-deudas/629/w4-contents.html" target="_blank" rel="noreferrer">Cómo obtenerlo en CMF</a>
             </p>
           </div>
         </div>
