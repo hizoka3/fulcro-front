@@ -13,7 +13,7 @@ export default function ComparadorPage() {
         <h1 class="text-h1 text-primary">3 productos con menor CAE</h1>
         <p class="mt-2 text-body text-ink-muted text-pretty">
           Productos abiertos al público en Chile con condiciones más favorables que tus actuales.
-          Defensor no recibe comisión por estas recomendaciones.
+          Fulcro no recibe comisión por estas recomendaciones.
         </p>
       </header>
 

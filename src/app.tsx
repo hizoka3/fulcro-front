@@ -10,7 +10,7 @@ export default function App() {
     <Router
       root={(props) => (
         <MetaProvider>
-          <Title>Defensor — Concierge financiero anónimo</Title>
+          <Title>Fulcro — Concierge financiero anónimo</Title>
           <Meta
             name="description"
             content="Sube tu informe CMF y recibe un diagnóstico claro, con citas a la ley chilena. Sin venta. Sin registro."

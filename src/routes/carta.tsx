@@ -40,7 +40,7 @@ export default function CartaPage() {
           <section class="mt-6 space-y-4 text-body">
             <p>
               <strong class="text-primary">Identificación del consumidor:</strong>{" "}
-              {data().avatar.name} (presentado vía Defensor — concierge anónimo).
+              {data().avatar.name} (presentado vía Fulcro — concierge anónimo).
             </p>
 
             <h2 class="text-h3 text-primary">I. Hechos</h2>
@@ -76,7 +76,7 @@ export default function CartaPage() {
             </ol>
 
             <p class="pt-4 italic text-ink-muted">
-              {data().avatar.name} — vía Defensor
+              {data().avatar.name} — vía Fulcro
             </p>
           </section>
         </div>

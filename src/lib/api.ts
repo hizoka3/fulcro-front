@@ -13,7 +13,7 @@ export async function ingest(_file: File): Promise<IngestResult> {
   await sleep(2800);
   lastIngest = maria as IngestResult;
   if (typeof window !== "undefined") {
-    sessionStorage.setItem("defensor:ingest", JSON.stringify(lastIngest));
+    sessionStorage.setItem("fulcro:ingest", JSON.stringify(lastIngest));
   }
   return lastIngest;
 }
@@ -21,7 +21,7 @@ export async function ingest(_file: File): Promise<IngestResult> {
 export function loadIngest(): IngestResult {
   if (lastIngest) return lastIngest;
   if (typeof window !== "undefined") {
-    const cached = sessionStorage.getItem("defensor:ingest");
+    const cached = sessionStorage.getItem("fulcro:ingest");
     if (cached) {
       lastIngest = JSON.parse(cached) as IngestResult;
       return lastIngest;
@@ -81,7 +81,7 @@ export async function generarCarta(anonId: string): Promise<Blob> {
 
 Santiago, ${today}
 
-Identificación del consumidor: ${anonId} (presentado vía Defensor — concierge anónimo).
+Identificación del consumidor: ${anonId} (presentado vía Fulcro — concierge anónimo).
 
 I. Hechos
 El proveedor Retail Sur me cobra una tasa de 33,8% anual, superior a la Tasa Máxima Convencional vigente (32,4%) para créditos de consumo de mi tramo. Adicionalmente, en mis estados de cuenta detecto una comisión de mantención mensual no informada en el contrato original.
@@ -98,7 +98,7 @@ Solicito a SERNAC iniciar mediación con el proveedor para:
 3) Restituir las sumas cobradas en exceso desde la celebración del contrato.
 
 Atentamente,
-${anonId} — vía Defensor`;
+${anonId} — vía Fulcro`;
   return new Blob([body], { type: "text/plain;charset=utf-8" });
 }
 

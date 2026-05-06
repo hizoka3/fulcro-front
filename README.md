@@ -1,4 +1,4 @@
-# Defensor — Frontend
+# Fulcro — Frontend
 
 Concierge financiero anónimo para Chile. SolidStart + Tailwind + TypeScript.
 

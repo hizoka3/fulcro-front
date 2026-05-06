@@ -103,7 +103,7 @@ export default function LandingPage() {
 
       <footer class="relative z-10 border-t border-primary-100/60 py-6">
         <div class="container-pro flex flex-col items-start justify-between gap-2 text-micro text-ink-muted sm:flex-row">
-          <span>© 2026 Defensor — Sin venta. Sin registro. Privacidad por arquitectura.</span>
+          <span>© 2026 Fulcro — Sin venta. Sin registro. Privacidad por arquitectura.</span>
           <span>Hecho en Chile · Datos públicos CMF · Ley 19.496 / 18.010</span>
         </div>
       </footer>

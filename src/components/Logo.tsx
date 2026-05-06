@@ -29,7 +29,7 @@ export default function Logo(props: { class?: string; mark?: boolean }): JSX.Ele
       </svg>
       {!props.mark && (
         <span class="font-semibold text-primary tracking-tight text-[17px]">
-          Defensor
+          Fulcro
         </span>
       )}
     </div>
